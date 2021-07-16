@@ -1,0 +1,34 @@
+name: openEuler gitee repos mirror periodic job
+
+# Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/**"
+  schedule:
+    # Runs at 09:00 UTC (17:00 PM Beijing) every day
+    - cron: "0 9 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mirror the gitee/src-openeuler to github/src-toweros.
+        uses: Yikun/hub-mirror-action@v1.1
+        with:
+          src: gitee/src-openeuler
+          dst: github/src-toweros
+          dst_key: ${{ secrets.SYNC_OPENEULER_PRIVATE_KEY }}
+          dst_token: ${{ secrets.SYNC_OPENEULER_TOKEN }}
+          account_type: org
+          debug: true
+          timeout: "6h"
