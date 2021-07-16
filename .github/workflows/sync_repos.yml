@@ -25,7 +25,7 @@ jobs:
       - name: Mirror the gitee/src-openeuler to github/src-toweros.
         uses: Yikun/hub-mirror-action@v1.1
         with:
-          src: gitee/src-openeuler
+          src: gitee/openeuler
           dst: github/cottonbuds
           dst_key: ${{ secrets.SYNC_OPENEULER_PRIVATE_KEY }}
           dst_token: ${{ secrets.SYNC_OPENEULER_TOKEN }}
