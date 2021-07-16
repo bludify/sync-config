@@ -30,5 +30,6 @@ jobs:
           dst_key: ${{ secrets.SYNC_OPENEULER_PRIVATE_KEY }}
           dst_token: ${{ secrets.SYNC_OPENEULER_TOKEN }}
           account_type: org
+          clone_style: ssh
           debug: true
           timeout: "6h"
