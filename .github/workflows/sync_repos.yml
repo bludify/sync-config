@@ -34,7 +34,7 @@ jobs:
           # force_update: true
           debug: true
           timeout: "10m"
-          white_list: "
+          static_list: "
           dde-account-faces,
           dde-api,
           dde-calendar,
