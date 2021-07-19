@@ -26,7 +26,7 @@ jobs:
         id: set_var
         run: |
           echo 'STATIC_LIST<<EOF' >> $GITHUB_ENV
-          curl https://raw.githubusercontent.com/gotlin/sync-config/main/static_list.txt
+          curl https://raw.githubusercontent.com/gotlin/sync-config/main/static_list.txt | xargs
           echo 'EOF' >> $GITHUB_ENV
     
       - name: Mirror the gitee/src-openeuler to github/src-toweros.
