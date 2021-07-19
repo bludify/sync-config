@@ -27,7 +27,7 @@ jobs:
           echo "::set-output name=static_list::$content"
     
       - name: Mirror the gitee/src-openeuler to github/src-toweros.
-        uses: gotlin/hub-mirror-action@master
+        uses: Yikun/hub-mirror-action@master
         with:
           src: gitee/src-openeuler
           dst: github/cottonbuds
