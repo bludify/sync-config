@@ -6,13 +6,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - ".github/workflows/**"
   pull_request:
     branches:
       - main
-    paths:
-      - ".github/workflows/**"
   schedule:
     # Runs at 09:00 UTC (17:00 PM Beijing) every day
     - cron: "0 9 * * *"
@@ -22,10 +18,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout source codes
+        uses: actions/checkout@v2
       - name: Prepare static list
         id: set_var
         run: |
-          content=$(curl https://raw.githubusercontent.com/gotlin/sync-config/main/static_list.txt | xargs)
+          content=$(cat ./static_list.txt | xargs)
           echo "::set-output name=static_list::$content"
     
       - name: Mirror the gitee/src-openeuler to github/src-toweros.
