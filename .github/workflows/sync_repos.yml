@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Mirror the gitee/src-openeuler to github/src-toweros.
-        uses: Yikun/hub-mirror-action@v1.1
+        uses: bludify/hub-mirror-action@master
         with:
           src: gitee/src-openeuler
           dst: github/cottonbuds
