@@ -19,3 +19,5 @@ dde-session-ui,
 dde,
 deepin-anything,
 deepin-clone,
+deepin-compressor,
+deepin-dbus-generator
