@@ -25,9 +25,8 @@ jobs:
       - name: Prepare static list
         id: set_var
         run: |
-          echo 'STATIC_LIST<<EOF' >> $GITHUB_ENV
-          curl https://raw.githubusercontent.com/gotlin/sync-config/main/static_list.txt | xargs
-          echo 'EOF' >> $GITHUB_ENV
+          content=$(curl https://raw.githubusercontent.com/gotlin/sync-config/main/static_list.txt | xargs)
+          echo "::set-output name=static_list::$content"
     
       - name: Mirror the gitee/src-openeuler to github/src-toweros.
         uses: gotlin/hub-mirror-action@master
@@ -41,4 +40,4 @@ jobs:
           # force_update: true
           debug: true
           timeout: "10m"
-          static_list: "${{ env.STATIC_LIST }}"
+          static_list: "${{ steps.set_var.outputs.static_list }}"
